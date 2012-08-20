@@ -60,6 +60,6 @@ class CardValue
   end
   
   def to_s
-    @value.to_s
+    @value.to_s.upcase
   end
 end

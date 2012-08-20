@@ -4,7 +4,7 @@ class Card
   attr_reader :value, :suit
   
   def initialize value, suit
-    raise ArgumentError.new 'wrong arguments for card. please check it' unless inputs_right?(value, suit)
+    raise ArgumentError.new 'wrong arguments for card. please, check it' unless inputs_right?(value, suit)
     @value = value
 	@suit = suit
   end

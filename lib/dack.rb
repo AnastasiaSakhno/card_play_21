@@ -5,7 +5,7 @@ class Dack
   
   def initialize
     @cards = Array.new
-	# сделать карту для каждой масти и для каждого значения. положить в @cards
+	# создать карту для каждой масти и для каждого значения. положить в @cards
 	Suit.methods.each do |suit_method_name|
 	  if not(contains_standart_method?(suit_method_name))
         CardValue.methods.each do |card_value_method_name|
@@ -16,10 +16,11 @@ class Dack
 	    end
 	  end
 	end
+	mix_cards
   end
   
   def next_card
-    @cards.delete @cards.first
+    @cards.pop
   end
   
   def empty?
@@ -30,5 +31,12 @@ class Dack
   
   def contains_standart_method? method_name
     EmptyClass.methods.include? method_name
+  end
+  
+  
+  private
+  
+  def mix_cards
+  	# TODO mix cards randomly
   end
 end
