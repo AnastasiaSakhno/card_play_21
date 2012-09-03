@@ -5,7 +5,7 @@ class Game
   
   def initialize players, dack = Dack.new, turn = 0
     @players = players
-	raise ArgumentError.new 'dack can not be empty' if dack == nil || dack.empty?
+	raise ArgumentError.new 'dack can not be empty' if dack.blank?
 	@dack = dack
 	@turn = turn
   end

@@ -2,64 +2,37 @@ require "card_play_21/version"
 
 class CardValue
   attr_reader :value
-  
+  @@card_values_map = {
+      'two' => 2,
+      'three' => 3,
+      'four' => 4,
+      'five' => 5,
+      'six' => 6,
+      'seven' => 7,
+      'eight' => 8,
+      'nine' => 9,
+      'ten' => 10,
+      'jack' => 'J',
+      'queen' => 'Q',
+      'king' => 'K',
+      'ace' => 'A'
+  }
+
+  def self.method_missing m
+    CardValue.new card_values_map[m.to_s.downcase]
+  end
+
+  def to_s
+    card_values_map[@value]
+  end
+
+  def self.card_values_map
+    @@card_values_map
+  end
+
+  private
+
   def initialize value
     @value = value
-  end
-  
-  def self.two 
-    CardValue.new 2
-  end
-  
-  def self.three
-    CardValue.new 3
-  end
-  
-  def self.four
-    CardValue.new 4
-  end
-  
-  def self.five
-    CardValue.new 5
-  end
-  
-  def self.six
-    CardValue.new 6
-  end
-  
-  def self.seven
-    CardValue.new 7
-  end
-  
-  def self.eight
-    CardValue.new 8
-  end
-  
-  def self.nine
-    CardValue.new 9
-  end
-  
-  def self.ten
-    CardValue.new 10
-  end
-  
-  def self.j
-    CardValue.new 'j'
-  end
-  
-  def self.q
-    CardValue.new 'q'
-  end
-  
-  def self.k
-    CardValue.new 'k'
-  end
-  
-  def self.a 
-    CardValue.new 'a'
-  end
-  
-  def to_s
-    @value.to_s.upcase
   end
 end
